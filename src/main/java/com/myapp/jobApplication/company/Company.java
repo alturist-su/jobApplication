@@ -1,5 +1,6 @@
 package com.myapp.jobApplication.company;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.myapp.jobApplication.job.Job;
 import jakarta.persistence.*;
 
@@ -14,6 +15,7 @@ public class Company {
     private String name;
     private String description;
 
+    @JsonIgnore
     @OneToMany
     private List<Job> jobs;
 

@@ -1,6 +1,10 @@
 package com.myapp.jobApplication.job;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.myapp.jobApplication.company.Company;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 //@Table(name = "job_table")
@@ -13,6 +17,9 @@ public class Job {
     private String minSalary;
     private String maxSalary;
     private String location;
+
+    @ManyToOne
+    private Company company;
 
     public Job() {
     }
