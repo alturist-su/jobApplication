@@ -18,8 +18,7 @@ public class CompanyController {
 
     @GetMapping
     public ResponseEntity<List<Company>> getAllCompanies(){
-        companyService.getAllCompanies();
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(companyService.getAllCompanies(), HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
@@ -40,6 +39,6 @@ public class CompanyController {
         if (companyService.deleteCompanyById(id)){
             return new ResponseEntity<>("Company Deleted successfully",HttpStatus.OK);
         }
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>("Company not found", HttpStatus.NOT_FOUND);
     }
 }

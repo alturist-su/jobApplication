@@ -21,16 +21,15 @@ public class Job {
     @ManyToOne
     private Company company;
 
-    public Job() {
+    public Company getCompany() {
+        return company;
     }
 
-    public Job(Long id, String title, String description, String minSalary, String maxSalary, String location) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        this.minSalary = minSalary;
-        this.maxSalary = maxSalary;
-        this.location = location;
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
+    public Job() {
     }
 
     public Long getId() {
@@ -80,4 +79,5 @@ public class Job {
     public void setLocation(String location) {
         this.location = location;
     }
+
 }

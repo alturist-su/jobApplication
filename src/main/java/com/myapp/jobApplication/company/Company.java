@@ -15,20 +15,13 @@ public class Company {
     private String name;
     private String description;
 
+    //removes recursive callbacks which we get by mapping Job and Company
     @JsonIgnore
-    @OneToMany
+    @OneToMany(mappedBy = "company")
     private List<Job> jobs;
-
     // private List<Review> reviews;
 
     public Company() {
-    }
-
-    public Company(Long id, String name, String description, List<Job> jobs) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.jobs = jobs;
     }
 
     public Long getId() {
